@@ -53,6 +53,9 @@ MIDDLEWARE = [
     
     'django_otp.middleware.OTPMiddleware',  # django opt middleware
 
+    # Include for twilio gateway
+    'two_factor.middleware.threadlocals.ThreadLocals',
+
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -128,11 +131,17 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-LOGIN_URL = 'two_factor:login'
+# LOGIN_URL = 'two_factor:login'
 
-LOGIN_REDIRECT_URL = 'two_factor:profile'
+# LOGIN_REDIRECT_URL = 'two_factor:profile'
 
 
 TWO_FACTOR_QR_FACTORY = 'qrcode.image.pil.PilImage'
 
 PHONENUMBER_DEFAULT_REGION = 'IN'
+
+TWO_FACTOR_PATCH_ADMIN = False
+
+OTP_TOTP_ISSUER = 'Awesome Inc.'
+
+TWO_FACTOR_SMS_GATEWAY = 'two_factor.gateways.twilio.gateway.Twilio'
