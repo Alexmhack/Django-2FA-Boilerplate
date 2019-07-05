@@ -131,3 +131,8 @@ STATIC_URL = '/static/'
 LOGIN_URL = 'two_factor:login'
 
 LOGIN_REDIRECT_URL = 'two_factor:profile'
+
+
+TWO_FACTOR_QR_FACTORY = 'qrcode.image.pil.PilImage'
+
+PHONENUMBER_DEFAULT_REGION = 'IN'
